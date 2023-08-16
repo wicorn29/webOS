@@ -1,13 +1,19 @@
-function runCommand(command) {
-  const args = command.split(' ');
-  const commandName = args[0];
-  
-  if (commandName in commands) {
-    const response = commands[commandName](args.slice(1));
-    outputElement.textContent += `\n> ${command}\n${response}\n`;
-  } else {
-    outputElement.textContent += `\n> ${command}\nCommand not found: ${commandName}\n`;
+// commands.js
+
+const commands = {
+  // ...other commands
+
+  download: function(args) {
+    if (!args) {
+      return "Usage: download <url>";
+    }
+
+    const link = document.createElement('a');
+    link.href = args;
+    link.download = args.split('/').pop(); // Get the filename from the URL
+    link.target = '_blank';
+    link.click();
+
+    return `Downloading from ${args}...`;
   }
-  
-  outputElement.scrollTop = outputElement.scrollHeight;
-}
+};
