@@ -1,13 +1,9 @@
-// commands.js
+function runCommand(command) {
+  const commands = {
+    help: 'Available commands: help, about',
+    about: 'This is your simple web-based OS terminal.'
+  };
 
-import { registerCommand } from './commandProcessor';
-
-registerCommand('help', 'Display available commands', () => {
-  // Logic to generate the help response
-});
-
-registerCommand('about', 'Display information about the OS', () => {
-  // Logic to generate the about response
-});
-
-// Define and register more commands here
+  const response = commands[command] || `Command not found: ${command}`;
+  return response;
+}
