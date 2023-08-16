@@ -17,3 +17,24 @@ function executeCommand(command) {
 }
 
 export { registerCommand, executeCommand };
+
+// commandProcessor.js
+
+// ... (previous code)
+
+function downloadFile(url) {
+  // Logic to trigger file download from the provided URL
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = url.substring(url.lastIndexOf('/') + 1);
+  link.click();
+}
+
+registerCommand('download', 'Download a file from URL', (args) => {
+  if (args.length === 1) {
+    downloadFile(args[0]);
+    return 'Downloading file...';
+  } else {
+    return 'Usage: download <file_url>';
+  }
+});
