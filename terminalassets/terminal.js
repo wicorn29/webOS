@@ -1,4 +1,14 @@
-// terminal.js
+const inputElement = document.getElementById('input');
+const outputElement = document.getElementById('output');
+
+inputElement.addEventListener('keydown', (event) => {
+  if (event.key === 'Enter') {
+    event.preventDefault();
+    const command = inputElement.value;
+    executeCommand(command);
+    inputElement.value = '';
+  }
+});
 
 function executeCommand(command) {
   const args = command.split(' ');
