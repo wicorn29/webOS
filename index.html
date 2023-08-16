@@ -5,13 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Web-Based OS</title>
   <link rel="stylesheet" href="terminalassets/terminal.css">
+  <link rel="stylesheet" href="windowlogicassets/windowstyles.css">
 </head>
 <body>
   <div id="terminal">
     <pre id="output"></pre>
     <input type="text" id="input" autofocus />
   </div>
+  
+  <!-- Button to create a window -->
+  <button id="createWindowButton">Create Window</button>
+
   <script src="terminalassets/commands.js"></script>
   <script src="terminalassets/terminal.js"></script>
+  <script src="windowlogicassets/windowsystem.js"></script>
+  <script src="windowlogicassets/windowcreation.js"></script>
+
+  <script>
+    // Attach event listener to the "Create Window" button
+    const createWindowButton = document.getElementById('createWindowButton');
+    createWindowButton.addEventListener('click', () => {
+      createWindow('New Window', 'This is the content of the new window.');
+    });
+  </script>
 </body>
 </html>
