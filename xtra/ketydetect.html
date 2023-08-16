@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>USB Drive Detection</title>
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    const usbDevices = await navigator.usb.getDevices();
+
+    // Check if any USB devices are connected
+    if (usbDevices.length > 0) {
+      for (const device of usbDevices) {
+        if (device.name === 'key') { // Check device name
+          const fileEntries = await device.requestFileSystemAccess();
+
+          for (const entry of fileEntries.root.children) {
+            if (entry.name === 'text.key' && entry.isFile) { // Check for file named "text.key"
+              // Redirect to a specific URL
+              window.location.href = 'https://example.com/redirect-page';
+            }
+          }
+        }
+      }
+    }
+  } catch (error) {
+    console.error('USB API error:', error);
+  }
+});
+</script>
+</head>
+<body>
+<!-- Your content here -->
+</body>
+</html>
