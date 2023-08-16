@@ -1,19 +1,9 @@
-// commands.js
+function runCommand(command) {
+  const commands = {
+    help: 'Available commands: help, about',
+    about: 'This is your simple web-based OS terminal.'
+  };
 
-const commands = {
-  // ...other commands
-
-  echo: function(args) {
-    return args;
-  },
-
-  clear: function() {
-    outputElement.textContent = '';
-    return 'Terminal cleared.';
-  },
-
-  date: function() {
-    const now = new Date();
-    return now.toLocaleString();
-  }
-};
+  const response = commands[command] || `Command not found: ${command}`;
+  return response;
+}
