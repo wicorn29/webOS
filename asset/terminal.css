@@ -1,0 +1,17 @@
+#terminal {
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  padding: 10px;
+  border-radius: 5px;
+  height: 300px;
+  overflow-y: auto;
+}
+
+#input {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-family: monospace;
+  width: 100%;
+}
