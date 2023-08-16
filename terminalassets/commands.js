@@ -1,16 +1,20 @@
-// commands.js
-
 const commands = {
-  // ...other commands
+  help: function() {
+    return 'Available commands: help, about, download';
+  },
+
+  about: function() {
+    return 'This is your simple web-based OS terminal.';
+  },
 
   download: function(args) {
     if (!args) {
-      return "Usage: download <url>";
+      return 'Usage: download <url>';
     }
 
     const link = document.createElement('a');
     link.href = args;
-    link.download = args.split('/').pop(); // Get the filename from the URL
+    link.download = args.split('/').pop();
     link.target = '_blank';
     link.click();
 
